@@ -61,13 +61,25 @@
 		<!-- <outputDirectory>target/${project.artifactId}/WEB-INF/classes</outputDirectory> -->
 		<plugins>
 			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>1.5.9.RELEASE</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+<!-- 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.2.0</version>
 				<configuration>
 					<archiveClasses>true</archiveClasses>
 					<webResources>
-						<!-- in order to interpolate version from pom into appengine-web.xml -->
+						in order to interpolate version from pom into appengine-web.xml
 						<resource>
 							<directory>${basedir}/src/main/webapp/WEB-INF</directory>
 							<filtering>true</filtering>
@@ -76,7 +88,7 @@
 					</webResources>
 				</configuration>
 			</plugin>
-			<plugin>
+ -->			<plugin>
 				<groupId>com.google.appengine</groupId>
 				<artifactId>appengine-maven-plugin</artifactId>
 				<version>${appengine.target.version}</version>
