@@ -10,6 +10,7 @@ import de.codecentric.boot.admin.config.EnableAdminServer;
 public class Application {
 
 	public static void main(String args[]) {		
+		System.setProperty("spring.application.name", "HIM-SPRINGBOOT APP");
 		SpringApplication.run(Application.class, args);
 	}	
 }
