@@ -3,4 +3,5 @@
   <!-- project id of google cloud -->
   <application>springbootadmin</application>
   <version>1</version>
+  <runtime>java8</runtime>
 </appengine-web-app>
