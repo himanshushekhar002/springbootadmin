@@ -9,11 +9,7 @@ import de.codecentric.boot.admin.config.EnableAdminServer;
 @EnableAdminServer
 public class Application {
 
-	public static void main(String args[]) {
-		System.setProperty("spring.application.name", "HIM-SPRINGBOOT APP");
-		System.setProperty("endpoints.health.sensitive", "false");
-		System.setProperty("management.security.enabled", "false");
-		//System.setProperty("spring.boot.admin.url","http://localhost:8080");
+	public static void main(String args[]) {		
 		SpringApplication.run(Application.class, args);
 	}	
 }
