@@ -7,15 +7,22 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springbootadmin Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-	<parent>
+<!-- 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.9.RELEASE</version>
 	</parent>
-	<properties>
+ -->
+ 	<parent>
+        <groupId>com.google.cloud.samples</groupId>
+        <artifactId>shared-configuration</artifactId>
+        <version>1.0.8</version>
+    </parent>
+ 	<properties>
 		<start-class>com.power2sme.springboot.Application</start-class>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<appengine.target.version>1.9.60</appengine.target.version>
+		<springboot.target.version>1.5.9.RELEASE</springboot.target.version>
 	</properties>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/com.google.appengine/appengine-api-1.0-sdk -->
@@ -24,10 +31,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${springboot.target.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<version>${springboot.target.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -39,7 +48,8 @@
 		<!-- This conflicts with logging with jetty -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>jul-to-slf4j</artifactId>
+			<artifactId>jul-to-slf4j</artifactId>	
+			<version>1.7.25</version>		
 			<scope>provided</scope>
 		</dependency>
 		<!-- Spring boot admin app -->
@@ -61,7 +71,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>1.5.9.RELEASE</version>
+				<version>${springboot.target.version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -75,6 +85,13 @@
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>appengine-maven-plugin</artifactId>
 				<version>1.3.2</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
 			</plugin>
 		</plugins>
 		<finalName>springbootadmin</finalName>
