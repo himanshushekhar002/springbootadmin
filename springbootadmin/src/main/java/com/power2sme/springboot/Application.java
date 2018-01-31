@@ -11,20 +11,18 @@ import de.codecentric.boot.admin.config.EnableAdminServer;
 @EnableAdminServer
 public class Application extends SpringBootServletInitializer {
 
-	
+	@Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
     		configureSystemProperties();
         return application.sources(Application.class);
     }
 	
-	public static void main(String args[]) {	
+	public static void main(String[] args) {	
 		configureSystemProperties();
 		SpringApplication.run(Application.class, args);
 	}	
 	
 	private static void configureSystemProperties() {
-		System.setProperty("spring.application.name", "HIM-SPRINGBOOT APP");
 		System.setProperty("spring.boot.admin.context-path", "/admin");
 	}
-	
 }
