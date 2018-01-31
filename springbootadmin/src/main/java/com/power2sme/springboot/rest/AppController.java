@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/application")
-public class AppNameController {
+@RequestMapping("/app")
+public class AppController {
 
 	@Value("${spring.application.name}")
 	private String appName;
